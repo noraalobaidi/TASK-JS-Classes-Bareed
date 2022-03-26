@@ -134,7 +134,9 @@ class Customer extends Person {
     super(name, x, y);
     this.wallet.credit(10);
   }
-  _isInRange = (vendor) => this.distanceTo(vendor.location) <= vendor.range;
+  // _isInRange = (vendor) => this.distanceTo(vendor.location) <= vendor.range;
+  _isInRange = (vendor) =>
+    vendor.location.distanceTo(this.location) <= vendor.range;
   _haveEnoughMoney = (vendor, numberOfIceCreams) =>
     this.wallet.money >= numberOfIceCreams * vendor.price;
   requestIceCream = (vendor, numberOfIceCreams) => {
